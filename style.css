@@ -1,127 +1,221 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #1e3a5f;
+  background: linear-gradient(-45deg, #0d1b2a, #1e3a5f, #0d1b2a, #14213d);
+  background-size: 400% 400%;
+  animation: fondoAnimado 10s ease infinite;
   text-align: center;
-  margin: 0;
   padding: 0;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
-/* HEADER tipo pokedex */
-h1 {
-  background: linear-gradient(90deg, #ff3d3d, #ff6b6b);
-  color: white;
+@keyframes fondoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.buscador {
+  display: flex;
+  gap: 10px;
+}
+
+.header {
+  width: 100%;
+  background: #0d1b2a;
+  border-bottom: 2px solid #42a5f5;
+  box-shadow: 0 0 20px rgba(66,165,245,0.5);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+.header h1 {
   margin: 0;
-  padding: 20px;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
+  color: #42a5f5;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-/* INPUT estilo gamer */
+.pokebola {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(red 50%, white 50%);
+  border-radius: 50%;
+  border: 2px solid black;
+  position: relative;
+  animation: girar 2s linear infinite;
+}
+
+.pokebola::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 input {
-  padding: 12px;
   margin-top: 30px;
+  padding: 12px;
+  width: 220px;
   border-radius: 10px;
   border: 2px solid #42a5f5;
-  outline: none;
-  width: 220px;
-  text-align: center;
   background: #0d1b2a;
   color: white;
-  box-shadow: 0 0 10px rgba(66,165,245,0.5);
+  text-align: center;
+  box-shadow: 0 0 10px #42a5f5;
 }
 
-input::placeholder {
-  color: #bbb;
-}
-
-/* BOTÓN */
 button {
   padding: 12px 18px;
   margin-left: 10px;
-  border: none;
   border-radius: 10px;
+  border: none;
   background: #42a5f5;
   color: white;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
-  box-shadow: 0 0 10px rgba(66,165,245,0.6);
+  box-shadow: 0 0 15px #42a5f5;
 }
 
 button:hover {
-  background: #1e88e5;
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #42a5f5;
 }
 
-/* LOADING */
 #loading {
   margin-top: 20px;
   font-weight: bold;
-  color: #fff;
-  text-shadow: 0 0 10px #42a5f5;
+  animation: parpadeo 1s infinite;
 }
 
-/* ERROR */
+@keyframes parpadeo {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
 #error {
   margin-top: 20px;
   color: #ff4d4d;
-  font-weight: bold;
 }
 
-/* CARD estilo gamer */
 #pokemonCard {
   margin: 40px auto;
   padding: 20px;
   width: 260px;
-  background: #0d1b2a;
+  background: rgba(13, 27, 42, 0.9);
   border-radius: 15px;
   border: 2px solid #42a5f5;
-  box-shadow: 0 0 25px rgba(66,165,245,0.6);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 30px rgba(66,165,245,0.8);
+  animation: aparecer 0.5s ease;
 }
 
-#pokemonCard:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px rgba(66,165,245,1);
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
-/* Nombre */
 #pokemonCard h2 {
-  margin-bottom: 10px;
   text-transform: capitalize;
   color: #ffd54f;
-  text-shadow: 0 0 10px rgba(255,213,79,0.8);
+  text-shadow: 0 0 10px #ffd54f;
 }
 
-/* Imagen */
 #pokemonCard img {
   width: 130px;
-  height: 130px;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+  filter: drop-shadow(0 0 15px white);
+  animation: flotar 3s ease-in-out infinite;
 }
 
-/* Texto */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 #pokemonCard p {
-  margin: 5px 0;
   font-size: 14px;
 }
 
-/* TIPOS estilo badges gamer */
+.stat {
+  text-align: left;
+  margin: 8px 0;
+}
+
+.stat span {
+  font-size: 12px;
+}
+
+.barra {
+  width: 100%;
+  height: 8px;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progreso {
+  height: 100%;
+  background: linear-gradient(90deg, #00e676, #69f0ae);
+  animation: cargar 1s ease;
+}
+
+@keyframes cargar {
+  from { width: 0; }
+}
+
 .tipo {
   display: inline-block;
   padding: 5px 12px;
   border-radius: 10px;
-  color: white;
-  font-size: 12px;
   margin: 5px;
   font-weight: bold;
-  box-shadow: 0 0 8px rgba(255,255,255,0.5);
+  animation: glow 2s infinite alternate;
 }
 
-/* Colores tipos */
+@keyframes glow {
+  from { box-shadow: 0 0 5px white; }
+  to { box-shadow: 0 0 15px white; }
+}
+
 .electric { background: #fbc02d; color: black; }
 .fire { background: #ff5722; }
 .water { background: #2196f3; }
@@ -129,7 +223,46 @@ button:hover {
 .poison { background: #9c27b0; }
 .normal { background: #9e9e9e; }
 
-/* ocultar */
 .hidden {
   display: none;
+}
+
+body.electric {
+  background: #fbc02d;
+}
+
+body.electric #pokemonCard {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body.electric #pokemonCard h2,
+body.electric #pokemonCard p,
+body.electric #pokemonCard h3 {
+  color: black;
+}
+
+body.fire { background: #ff5722; }
+body.water { background: #2196f3; }
+body.grass { background: #4caf50; }
+body.poison { background: #9c27b0; }
+body.normal { background: #607d8b; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.mini-card {
+  background: #0d1b2a;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #42a5f5;
+  box-shadow: 0 0 10px rgba(66,165,245,0.5);
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.mini-card:hover {
+  transform: scale(1.1);
 }

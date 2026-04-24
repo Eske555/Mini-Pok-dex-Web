@@ -41,25 +41,50 @@ async function buscarPokemon() {
 }
 
 function mostrarPokemon(pokemon) {
-  const tipos = pokemon.types
-    .map(t => t.type.name)
-    .join(", ");
+  const tipos = pokemon.types.map(t => t.type.name);
 
-    card.innerHTML = `
+  document.body.className = tipos[0];
+
+  const tiposHTML = tipos
+    .map(t => `<span class="tipo ${t}">${t}</span>`)
+    .join("");
+
+  const stats = pokemon.stats.map(stat => {
+    return `
+      <div class="stat">
+        <span>${stat.stat.name}</span>
+        <div class="barra">
+          <div class="progreso" style="width:${stat.base_stat}%"></div>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  card.innerHTML = `
     <h2>${pokemon.name}</h2>
     <img src="${pokemon.sprites.front_default}">
-    <p>Tipo: ${tipos}</p>
+    <div>${tiposHTML}</div>
     <p>Peso: ${pokemon.weight}</p>
     <p>Altura: ${pokemon.height}</p>
+
+    <h3>Stats</h3>
+    ${stats}
   `;
+
   card.classList.remove("hidden");
+  card.style.animation = "aparecer 0.5s ease";
 } 
 
 function mostrarLista(lista) {
-  card.innerHTML = lista
-    .slice(0, 10)
-    .map(p => `<p>${p.pokemon.name}</p>`)
-    .join("");
+  card.innerHTML = `
+    <div class="grid">
+      ${lista.slice(0, 12).map(p => `
+        <div class="mini-card">
+          ${p.pokemon.name}
+        </div>
+      `).join("")}
+    </div>
+  `;
 
   card.classList.remove("hidden");
 }

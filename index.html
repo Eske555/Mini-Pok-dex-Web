@@ -7,15 +7,26 @@
 </head>
 <body>
 
-<h1>Mini Pokédex</h1>
+<header class="header">
+  <div class="header-content">
+    <div class="pokebola"></div>
+    <h1>Mini Pokédex</h1>
+  </div>
+</header>
 
-<input type="text" id="pokemonInput" placeholder="Nombre del Pokémon">
-<button id="searchBtn">Buscar</button>
+<div class="app">
+  
+  <div class="buscador">
+    <input type="text" id="pokemonInput" placeholder="Nombre del Pokémon">
+    <button id="searchBtn">Buscar</button>
+  </div>
 
-<div id="loading" class="hidden">Cargando...</div>
-<div id="error" class="hidden"></div>
+  <div id="loading" class="hidden">Cargando...</div>
+  <div id="error" class="hidden"></div>
 
-<div id="pokemonCard" class="hidden"></div>
+  <div id="pokemonCard" class="hidden"></div>
+
+</div>
 
 <script src="app.js"></script>
 </body>
