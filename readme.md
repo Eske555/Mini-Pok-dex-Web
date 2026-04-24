@@ -1,4 +1,5 @@
 🔍 Endpoints investigados
+
 🔹 1. Obtener Pokémon por nombre
 URL:
 https://pokeapi.co/api/v2/pokemon/pikachu
