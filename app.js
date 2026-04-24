@@ -18,15 +18,23 @@ async function buscarPokemon() {
   loading.classList.remove("hidden");
 
   try {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`);
+    let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`);
+
+    if (res.ok) {
+      const data = await res.json();
+      mostrarPokemon(data);
+      return;
+    }
+
+    res = await fetch(`https://pokeapi.co/api/v2/type/${nombre}`);
 
     if (!res.ok) throw new Error("No encontrado");
 
     const data = await res.json();
-    mostrarPokemon(data);
+    mostrarLista(data.pokemon);
 
   } catch (err) {
-    mostrarError("Pokémon no encontrado");
+    mostrarError("Pokémon o tipo no encontrado");
   } finally {
     loading.classList.add("hidden");
   }
@@ -44,6 +52,15 @@ function mostrarPokemon(pokemon) {
     <p>Peso: ${pokemon.weight}</p>
     <p>Altura: ${pokemon.height}</p>
   `;
+  card.classList.remove("hidden");
+} 
+
+function mostrarLista(lista) {
+  card.innerHTML = lista
+    .slice(0, 10)
+    .map(p => `<p>${p.pokemon.name}</p>`)
+    .join("");
+
   card.classList.remove("hidden");
 }
 

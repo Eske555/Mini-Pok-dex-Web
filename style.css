@@ -1,12 +1,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #74c0fc; /* azul uniforme */
+  background: #74c0fc;
   text-align: center;
   margin: 0;
   padding: 0;
 }
 
-/* Título */
 h1 {
   background-color: #ef5350;
   color: white;
@@ -16,7 +15,6 @@ h1 {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Input y botón */
 input {
   padding: 10px;
   margin-top: 20px;
@@ -43,21 +41,18 @@ button:hover {
   background-color: #1e88e5;
 }
 
-/* Loading */
 #loading {
   margin-top: 20px;
   font-weight: bold;
   color: #333;
 }
 
-/* Error */
 #error {
   margin-top: 20px;
   color: red;
   font-weight: bold;
 }
 
-/* Card estilo Pokémon GO */
 #pokemonCard {
   margin: 30px auto;
   padding: 20px;
@@ -76,19 +71,16 @@ button:hover {
   display: none;
 }
 
-/* Nombre */
 #pokemonCard h2 {
   margin-bottom: 10px;
   text-transform: capitalize;
 }
 
-/* Imagen */
 #pokemonCard img {
   width: 120px;
   height: 120px;
 }
 
-/* Stats */
 #pokemonCard p {
   margin: 5px 0;
   font-size: 14px;
