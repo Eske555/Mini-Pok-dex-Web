@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "a453834e-5ef2-458d-bf9f-d98c10691cb7",
+		"name": "Mini Pokedex API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pokemon por nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/pikachu",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"pikachu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokemon por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/25",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokemon lista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon?limit=10",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokemon tipo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/type/electric",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"type",
+						"electric"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/aaaaaa",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"aaaaaa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
