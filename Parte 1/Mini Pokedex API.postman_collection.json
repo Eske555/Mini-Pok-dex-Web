@@ -10,7 +10,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
+				"url": {	
 					"raw": "https://pokeapi.co/api/v2/pokemon/pikachu",
 					"protocol": "https",
 					"host": [
